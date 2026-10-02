@@ -235,7 +235,7 @@ footer{padding-block:28px;color:var(--white-3);font-family:var(--sans);font-size
     </div>
 
     <figure class="plate" id="plate" aria-label="Simplified demo of the Atlas map" style="margin:0">
-      <div class="plate-head"><span class="demo-tag" data-t="ill"></span><span class="tabs" role="group" aria-label="Choose a place"><button type="button" class="tab" data-place="jer"></button><button type="button" class="tab" data-place="gaza"></button></span></div>
+      <div class="plate-head"><span class="demo-tag" data-t="ill"></span><span class="tabs" role="group" aria-label="Choose a place"><button type="button" class="tab" data-place="jer"></button><button type="button" class="tab" data-place="gaza"></button><button type="button" class="tab" data-place="acre"></button></span></div>
       <p class="demo-note" data-t="note"></p>
       <div class="plate-body">
         <div class="map" id="map"></div>
@@ -427,7 +427,33 @@ footer{padding-block:28px;color:var(--white-3);font-family:var(--sans);font-size
      he:{y:"1967",date:"1967 לספירה",title:"תחת שלטון ישראל",text:"ישראל כובשת את העיר העתיקה ואת מזרח ירושלים במלחמת ששת הימים. כעבור ימים ספורים נהרסת שכונת המוגרבים שליד הכותל המערבי כדי לפנות רחבה.",src:"רשומות ממשלת ישראל ודיווחי עיתונות, יוני 1967."},
      ar:{y:"1967",date:"1967 م",title:"تحت الحكم الإسرائيلي",text:"تستولي إسرائيل على البلدة القديمة والقدس الشرقية في حرب حزيران 1967. وبعد أيام يُهدم حيّ المغاربة المجاور لحائط البراق (الحائط الغربي) لإفساح ساحة.",src:"سجلات الحكومة الإسرائيلية والتقارير الصحفية، حزيران/يونيو 1967."}}
   ];
-  const PLACES={jer:{key:"Jerusalem",lat:31.78,lon:35.23,A:JER,start:0},gaza:{key:"Gaza",lat:31.50,lon:34.46,A:GAZA,start:1}};
+  const ACRE=[
+    {en:{y:"c. 1350 BCE",date:"14th century BCE",title:"A Canaanite port under Egypt",text:"The rulers of Akka write to the pharaoh in the Amarna letters, reporting on their neighbors and asking for support.",src:"Amarna letters EA 232–235."},
+     he:{y:"כ־1350 לפנה״ס",date:"המאה ה־14 לפנה״ס",title:"נמל כנעני תחת מצרים",text:"שליטי עכו כותבים לפרעה במכתבי אל־עמארנה, מדווחים על שכניהם ומבקשים תמיכה.",src:"מכתבי אל־עמארנה EA 232–235."},
+     ar:{y:"نحو 1350 ق.م",date:"القرن الرابع عشر ق.م",title:"ميناء كنعاني تحت حكم مصر",text:"يكتب حكّام عكا إلى فرعون في رسائل تل العمارنة، يخبرونه عن جيرانهم ويطلبون دعمه.",src:"رسائل تل العمارنة EA 232–235."}},
+    {en:{y:"Iron Age",date:"c. 1150–600 BCE",title:"Acco in the Book of Judges",text:"The Book of Judges lists Acco among the coastal towns whose inhabitants the tribe of Asher did not drive out.",src:"Judges 1:31."},
+     he:{y:"תקופת הברזל",date:"כ־1150–600 לפנה״ס",title:"עכו בספר שופטים",text:"ספר שופטים מונה את עכו בין ערי החוף שאת יושביהן לא הורישו בני אשר.",src:"שופטים א 31."},
+     ar:{y:"العصر الحديدي",date:"نحو 1150–600 ق.م",title:"عكا في سفر القضاة",text:"يذكر سفر القضاة عكا بين مدن الساحل التي لم يطرد سبط أشير سكانها.",src:"سفر القضاة 1: 31."}},
+    {en:{y:"200s BCE",date:"3rd century BCE",title:"Renamed Ptolemais",text:"Under the Ptolemies of Egypt the city takes the name Ptolemais. Greek and Roman writers record both names.",src:"Strabo, Geography 16.2.25; the city’s coinage."},
+     he:{y:"המאה ה־3 לפנה״ס",date:"המאה ה־3 לפנה״ס",title:"שמה משתנה לפטולמאיס",text:"בימי בית תלמי המצרי העיר מקבלת את השם פטולמאיס. סופרים יוונים ורומים מזכירים את שני השמות.",src:"סטרבון, גאוגרפיה 16.2.25; מטבעות העיר."},
+     ar:{y:"القرن 3 ق.م",date:"القرن الثالث ق.م",title:"تُسمّى بطولمايس",text:"في عهد البطالمة حكّام مصر تتخذ المدينة اسم بطولمايس، ويذكر الكتّاب اليونان والرومان الاسمين معًا.",src:"سترابون، الجغرافيا 16.2.25؛ نقود المدينة."}},
+    {en:{y:"1191",date:"1191 CE",title:"Capital of the Crusader kingdom",text:"After a two-year siege, the armies of the Third Crusade take Acre from Saladin. With Jerusalem lost, Acre serves as the capital of the Crusader kingdom for a century.",src:"Baha al-Din Ibn Shaddad, Life of Saladin; Itinerarium Peregrinorum."},
+     he:{y:"1191",date:"1191 לספירה",title:"בירת הממלכה הצלבנית",text:"אחרי מצור של שנתיים כובשים צבאות מסע הצלב השלישי את עכו מידי צלאח א־דין. משאבדה ירושלים, עכו משמשת בירת הממלכה הצלבנית במשך מאה שנה.",src:"בהאא א־דין אבן שדאד, תולדות צלאח א־דין; Itinerarium Peregrinorum."},
+     ar:{y:"1191",date:"1191 م",title:"عاصمة المملكة الصليبية",text:"بعد حصار دام عامين تستولي جيوش الحملة الصليبية الثالثة على عكا من صلاح الدين. ومع خسارة القدس تصبح عكا عاصمة المملكة الصليبية قرنًا من الزمن.",src:"بهاء الدين ابن شداد، النوادر السلطانية؛ Itinerarium Peregrinorum."}},
+    {en:{y:"1291",date:"1291 CE",title:"The Mamluks end Crusader rule",text:"The Mamluk sultan al-Ashraf Khalil takes Acre after a six-week siege, bringing the Crusader kingdom to an end.",src:"Abu al-Fida, who fought in the siege, in his chronicle."},
+     he:{y:"1291",date:"1291 לספירה",title:"הממלוכים מסיימים את השלטון הצלבני",text:"הסולטן הממלוכי אל־אשרף ח׳ליל כובש את עכו אחרי מצור של שישה שבועות, ומביא לקץ הממלכה הצלבנית.",src:"אבו אל־פדא, שהשתתף במצור, בכרוניקה שלו."},
+     ar:{y:"1291",date:"1291 م",title:"المماليك ينهون الحكم الصليبي",text:"يستعيد السلطان المملوكي الأشرف خليل عكا بعد حصار دام ستة أسابيع، فتنتهي المملكة الصليبية.",src:"أبو الفداء، وقد شارك في الحصار، في المختصر في أخبار البشر."}},
+    {en:{y:"1799",date:"1799 CE",title:"Acre holds against Napoleon",text:"Ahmad Pasha al-Jazzar, the Ottoman governor of Acre, with his Jewish chief adviser Haim Farhi and British naval support, withstands Napoleon’s two-month siege.",src:"Napoleon’s correspondence; Sir Sidney Smith’s naval dispatches."},
+     he:{y:"1799",date:"1799 לספירה",title:"עכו עומדת מול נפוליאון",text:"אחמד פאשה אל־ג׳זאר, המושל העות׳מאני של עכו, לצד יועצו הראשי היהודי חיים פרחי ובסיוע הצי הבריטי, עומד במצור של נפוליאון שנמשך חודשיים.",src:"מכתבי נפוליאון; דיווחי הצי של סר סידני סמית׳."},
+     ar:{y:"1799",date:"1799 م",title:"عكا تصمد أمام نابليون",text:"يصمد أحمد باشا الجزّار، والي عكا العثماني، ومعه مستشاره الأول اليهودي حاييم فرحي وبدعم من الأسطول البريطاني، أمام حصار نابليون الذي دام شهرين.",src:"مراسلات نابليون؛ تقارير سير سيدني سميث البحرية."}},
+    {en:{y:"1948",date:"1948 CE",title:"The city changes hands",text:"Israeli forces take Acre in May 1948. Most of its Arab residents leave during the fighting. Those who remain become the Arab community of the Old City, and Jewish immigrants settle in the new neighborhoods.",src:"Haganah and IDF reports, May 1948; Israeli population census, November 1948."},
+     he:{y:"1948",date:"1948 לספירה",title:"העיר עוברת לידיים אחרות",text:"כוחות ישראליים כובשים את עכו במאי 1948. רוב תושביה הערבים עוזבים במהלך הלחימה. הנותרים הם הקהילה הערבית של העיר העתיקה, ועולים יהודים מתיישבים בשכונות החדשות.",src:"דיווחי ההגנה וצה״ל, מאי 1948; מפקד האוכלוסין, נובמבר 1948."},
+     ar:{y:"1948",date:"1948 م",title:"المدينة تنتقل إلى أيدٍ أخرى",text:"تستولي القوات الإسرائيلية على عكا في أيار 1948، ويغادر معظم سكانها العرب خلال القتال. ويشكّل من بقي منهم المجتمع العربي في البلدة القديمة، بينما يستقر مهاجرون يهود في الأحياء الجديدة.",src:"تقارير الهاغاناه والجيش الإسرائيلي، أيار/مايو 1948؛ إحصاء السكان الإسرائيلي، تشرين الثاني/نوفمبر 1948."}},
+    {en:{y:"2001",date:"2001 CE",title:"A World Heritage city",text:"UNESCO lists the Old City of Acre as a World Heritage Site: a walled Ottoman town built over the largely intact remains of the Crusader city.",src:"UNESCO World Heritage List, inscribed 2001."},
+     he:{y:"2001",date:"2001 לספירה",title:"עיר מורשת עולמית",text:"אונסק״ו מכריזה על העיר העתיקה של עכו כאתר מורשת עולמית: עיר עות׳מאנית מוקפת חומה הבנויה על שרידי העיר הצלבנית, שנשתמרו ברובם.",src:"רשימת אתרי המורשת העולמית של אונסק״ו, הכרזה 2001."},
+     ar:{y:"2001",date:"2001 م",title:"مدينة على قائمة التراث العالمي",text:"تُدرج اليونسكو البلدة القديمة في عكا على قائمة التراث العالمي: مدينة عثمانية مسوّرة مبنية فوق بقايا المدينة الصليبية المحفوظة إلى حدّ كبير.",src:"قائمة التراث العالمي لليونسكو، إدراج 2001."}}
+  ];
+  const PLACES={jer:{key:"Jerusalem",lat:31.78,lon:35.23,A:JER,start:0},gaza:{key:"Gaza",lat:31.50,lon:34.46,A:GAZA,start:1},acre:{key:"Acre",lat:32.92,lon:35.08,A:ACRE,start:0}};
   // ---------- projection: equirectangular, cos(lat) corrected ----------
   const LON0=34.0, LON1=36.1, LAT0=30.95, LAT1=33.35, K=220, CX=Math.cos(32.1*Math.PI/180);
   const W=(LON1-LON0)*CX*K, H=(LAT1-LAT0)*K;
@@ -456,7 +482,7 @@ footer{padding-block:28px;color:var(--white-3);font-family:var(--sans);font-size
     [[31.10,35.62],[31.60,35.66],[32.10,35.68],[32.60,35.72],[32.62,35.95],[32.00,35.98],[31.40,35.88],[31.05,35.75]],
     [[32.66,34.98],[32.75,35.05],[32.70,35.12],[32.60,35.10]]
   ];
-  const places=[["Hebron",31.53,35.10,"l"],["Beersheba",31.25,34.79,"r"],["Jaffa",32.05,34.75,"r"],["Caesarea",32.50,34.89,"r"],["Acre",32.92,35.08,"r"],["Nablus",32.22,35.26,"r"],["Nazareth",32.70,35.30,"r"],["Tiberias",32.79,35.53,"l"],["Safed",32.96,35.50,"l"],["Jericho",31.86,35.46,"r"],["Amman",31.95,35.93,"l"],["Tyre",33.27,35.20,"r"]];
+  const places=[["Hebron",31.53,35.10,"l"],["Beersheba",31.25,34.79,"r"],["Jaffa",32.05,34.75,"r"],["Caesarea",32.50,34.89,"r"],["Nablus",32.22,35.26,"r"],["Nazareth",32.70,35.30,"r"],["Tiberias",32.79,35.53,"l"],["Safed",32.96,35.50,"l"],["Jericho",31.86,35.46,"r"],["Amman",31.95,35.93,"l"],["Tyre",33.27,35.20,"r"]];
 
   function drawMap(lang){
     const u=UI[lang], li=LI[lang];
