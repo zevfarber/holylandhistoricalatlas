@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HolyLand Historical Atlas</title>
+<meta name="description" content="A planned map of the Holy Land's history in English, Arabic and Hebrew, where every claim is tied to a source you can read. Now in planning.">
+<meta property="og:title" content="HolyLand Historical Atlas">
+<meta property="og:description" content="A planned map of the Holy Land's history in English, Arabic and Hebrew, where every claim is tied to a source you can read.">
+<meta property="og:url" content="https://holylandhistoricalatlas.org/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230C0D10'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23C9A25C' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23C9A25C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=Archivo:wght@400;500;600&family=Frank+Ruhl+Libre:wght@400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap">
+<style>
+/* Layout: zfarber.com language. Dark hero with the map plate as the anchoring image and live demo; paper body for the one-page argument; dark close with the three asks. Single deliberate look, matching the site. */
+:root{
+  color-scheme:dark;
+  --black:#0C0D10;--black-2:#14161B;--black-3:#1C1F26;--line-d:#2A2E37;
+  --white:#F3EFE7;--white-2:#C9C4BA;--white-3:#8E8A81;
+  --gold:#C9A25C;--gold-2:#E2C078;--gold-ink:#8C6A2A;
+  --paper:#F4F1EA;--card:#FBF9F4;--ink:#17191E;--ink-2:#4A4E58;--ink-3:#7C808A;--rule:#DAD5C9;
+  --plate:#EFE6D2;--plate-land:#E8DCC0;--plate-hill:#D6C49E;--plate-sea:#C9D6D2;--plate-water:#B7CBC7;--plate-ink:#5B4A2E;--plate-line:#BFAE8A;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --text:"Source Serif 4",Georgia,serif;
+  --sans:"Archivo",system-ui,-apple-system,sans-serif;
+  --he:"Frank Ruhl Libre","Times New Roman",serif;
+  --ar:"Noto Naskh Arabic","Geeza Pro","Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:var(--white);font-family:var(--text);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+.label{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--white-3)}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+[lang="he"]{font-family:var(--he)}
+[lang="ar"]{font-family:var(--ar)}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(40px,6vw,88px) clamp(40px,5vw,72px);border-bottom:1px solid var(--line-d);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 74% 42%,rgba(201,162,92,.13),transparent 45%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,5vw,72px);align-items:start}
+.hero-text{display:flex;flex-direction:column;gap:24px;padding-top:clamp(0px,3vw,40px)}
+.status{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--gold-2)}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;border:1.5px solid var(--gold-2)}
+.hero h1{font-size:clamp(46px,6.2vw,88px);letter-spacing:-.022em;line-height:.98}
+.hero h1 em{font-style:italic;font-weight:300;color:var(--gold-2)}
+.tri{display:flex;flex-wrap:wrap;gap:6px 22px;color:var(--white-2);font-size:19px;line-height:1.5}
+.tri span[lang="ar"]{font-size:18px}
+.lead{font-family:var(--serif);font-size:clamp(20px,1.7vw,24px);line-height:1.42;color:var(--white);max-width:34ch}
+.hero-acts{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center}
+.btn{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:14px 22px;border:1px solid currentColor;border-radius:2px;display:inline-block;line-height:1;text-decoration:none;background:transparent;color:inherit;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.btn.primary{background:var(--gold);border-color:var(--gold);color:var(--black)}
+.btn.primary:hover{background:var(--gold-2);border-color:var(--gold-2)}
+.btn:not(.primary):hover{background:rgba(243,239,231,.08)}
+.more{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--gold-2);text-decoration:none}
+.more:hover{color:var(--white)}
+:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
+
+/* ---------- the plate ---------- */
+.plate{background:var(--plate);color:var(--plate-ink);border:1px solid #3a3326;box-shadow:0 30px 60px rgba(0,0,0,.45);padding:14px 14px 0;display:flex;flex-direction:column;min-width:0}
+.plate-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:2px 4px 10px;border-bottom:1px solid var(--plate-line);font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7A6643}
+.plate-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:0;min-width:0}
+.map{border-right:1px solid var(--plate-line);min-width:0}
+.map svg{display:block;width:100%;height:auto}
+.anchor-card{padding:18px 4px 18px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.anchor-card .k{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#8A6B2F;font-weight:600;display:flex;align-items:center;gap:8px}
+.anchor-card .k svg{flex:none}
+.anchor-card .place{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.anchor-card .place b{font-family:var(--serif);font-weight:500;font-size:26px;color:#2E2516}
+.anchor-card .place span{font-size:17px;color:#6E5C3C}
+.anchor-card .date{font-family:var(--sans);font-size:13px;font-weight:600;color:#2E2516;font-variant-numeric:tabular-nums}
+.anchor-card h3{font-size:21px;color:#2E2516;line-height:1.2}
+.anchor-card p{font-size:15.5px;line-height:1.5;color:#4C3F28}
+.src{margin-top:auto;border-top:1px dashed var(--plate-line);padding-top:10px;font-size:14px;line-height:1.45;color:#4C3F28}
+.src b{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A6B2F;display:block;margin-bottom:3px}
+.scrub{border-top:1px solid var(--plate-line);padding:14px 6px 16px}
+.scrub-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));position:relative}
+.scrub-row::before{content:"";position:absolute;left:8%;right:8%;top:9px;height:1px;background:var(--plate-line)}
+.stop{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;position:relative;padding:0 2px;border-radius:2px}
+.stop i{width:19px;height:19px;border-radius:50%;background:var(--plate);border:1.5px solid #A88B55;display:block;transition:background .2s,transform .2s}
+.stop span{font-family:var(--sans);font-size:11.5px;font-weight:500;color:#7A6643;font-variant-numeric:tabular-nums;line-height:1.2}
+.stop:hover i{background:#E9D9B4}
+.stop[aria-pressed="true"] i{background:#A3772B;border-color:#A3772B;transform:scale(1.1)}
+.stop[aria-pressed="true"] span{color:#2E2516;font-weight:600}
+.stop:focus-visible{outline:2px solid #A3772B;outline-offset:3px}
+.plate-foot{font-family:var(--sans);font-size:11.5px;line-height:1.4;color:#7A6643;padding:10px 4px 12px;border-top:1px solid var(--plate-line)}
+
+/* map drawing */
+.m-sea{fill:var(--plate-sea)}
+.m-land{fill:var(--plate-land)}
+.m-hill{fill:var(--plate-hill)}
+.m-lake{fill:var(--plate-water);stroke:#9DB5B0;stroke-width:.8}
+.m-river{fill:none;stroke:#8FAAA5;stroke-width:1.4;stroke-linecap:round}
+.m-coast{fill:none;stroke:#9C8A66;stroke-width:1}
+.m-grat{stroke:#B9A984;stroke-width:.5;stroke-dasharray:2 4;fill:none}
+.m-grat-t{font-family:var(--sans);font-size:8.5px;fill:#9A8761;letter-spacing:.04em}
+.m-dot{fill:#6E5C3C}
+.m-lbl{font-family:var(--sans);font-size:10px;fill:#5B4A2E;letter-spacing:.02em}
+.m-water-t{font-family:var(--serif);font-style:italic;font-size:12px;fill:#5F7C77}
+.m-sel-ring{fill:none;stroke:#A3772B;stroke-width:1.4}
+.m-sel{fill:#A3772B}
+.m-sel-lbl{font-family:var(--serif);font-size:15px;font-weight:600;fill:#2E2516}
+.m-scale{stroke:#5B4A2E;stroke-width:1;fill:none}
+.pulse{transform-origin:center;transform-box:fill-box;animation:pulse 2.6s ease-out infinite}
+@keyframes pulse{0%{opacity:.9;transform:scale(.6)}100%{opacity:0;transform:scale(2.2)}}
+
+/* ---------- paper body ---------- */
+.paper{background:var(--paper);color:var(--ink)}
+.paper .label{color:var(--ink-3)}
+section.block{padding-block:clamp(48px,6vw,84px);border-bottom:1px solid var(--rule)}
+.sec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(20px,4vw,64px);align-items:start}
+.sec h2{font-size:clamp(30px,3.4vw,44px);margin-top:10px}
+.body{display:flex;flex-direction:column;gap:16px;max-width:62ch;color:var(--ink-2)}
+.body strong{color:var(--ink);font-weight:600}
+.body .big{font-family:var(--serif);font-size:clamp(21px,1.9vw,25px);line-height:1.4;color:var(--ink)}
+
+.stages{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--rule);margin-top:10px}
+.stage{padding:20px 22px 4px 0;display:flex;flex-direction:column;gap:8px}
+.stage+.stage{padding-left:22px;border-left:1px solid var(--rule)}
+.stage .label{color:var(--gold-ink)}
+.stage h3{font-size:22px;color:var(--ink)}
+.stage p{font-size:16.5px;color:var(--ink-2)}
+
+.qs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:40px;border-top:1px solid var(--rule)}
+.qs li{padding:16px 0 16px 30px;border-bottom:1px solid var(--rule);position:relative;font-size:17px;line-height:1.45;color:var(--ink)}
+.qs li::before{content:"";position:absolute;left:4px;top:23px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(201,162,92,.22)}
+.qs li small{display:block;font-size:15px;color:var(--ink-2);margin-top:3px}
+
+.axes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;border-top:1px solid var(--rule);padding-top:22px}
+.axis h3{font-size:24px;color:var(--ink);margin-bottom:6px}
+.axis p{font-size:16.5px;color:var(--ink-2)}
+.axis .label{margin-bottom:8px;color:var(--gold-ink)}
+
+.status-box{background:var(--card);border:1px solid var(--rule);padding:22px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.status-box div{display:flex;flex-direction:column;gap:6px}
+.status-box .label{color:var(--gold-ink)}
+.status-box p{font-size:16.5px;color:var(--ink)}
+
+/* ---------- dark close ---------- */
+.asks{background:var(--black-2);padding-block:clamp(52px,6vw,88px);border-top:1px solid var(--line-d)}
+.asks h2{font-size:clamp(30px,3.4vw,44px);margin:10px 0 30px}
+.ask-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ask{background:var(--black-3);border:1px solid var(--line-d);padding:28px 26px 26px;display:flex;flex-direction:column;gap:12px}
+.ask h3{font-size:26px}
+.ask p{color:var(--white-2);font-size:16.5px}
+.ask .label{color:var(--gold-2)}
+.ask .go{margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center}
+.signup{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.signup label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.signup input{flex:1 1 160px;min-width:0;font:inherit;font-size:16px;padding:11px 12px;border:1px solid var(--line-d);border-radius:2px;background:var(--black);color:var(--white)}
+.signup input::placeholder{color:var(--white-3)}
+.signup .btn{padding:12px 16px}
+.signup-msg{font-family:var(--sans);font-size:13px;color:var(--gold-2);min-height:1em}
+
+
+/* language switch + per-language type on the plate */
+.place{gap:6px 14px!important}
+.nm{all:unset;cursor:pointer;font-size:17px;color:#6E5C3C;border-bottom:1px dotted #B9A272;line-height:1.3;padding-bottom:1px}
+.nm[lang="en"]{font-family:var(--serif)}
+.nm:hover{color:#2E2516}
+.nm[aria-pressed="true"]{font-size:26px;font-weight:500;color:#2E2516;border-bottom-color:transparent;cursor:default}
+.nm:focus-visible{outline:2px solid #A3772B;outline-offset:3px}
+.hint{font-family:var(--sans);font-size:11.5px;color:#8A7550;margin-top:-4px}
+.plate[data-lang="he"] .anchor-card,.plate[data-lang="he"] .stop span,.plate[data-lang="he"] .plate-head,.plate[data-lang="he"] .plate-foot{font-family:var(--he);letter-spacing:0;text-transform:none}
+.plate[data-lang="ar"] .anchor-card,.plate[data-lang="ar"] .stop span,.plate[data-lang="ar"] .plate-head,.plate[data-lang="ar"] .plate-foot{font-family:var(--ar);letter-spacing:0;text-transform:none}
+.plate[data-lang="he"] .anchor-card h3,.plate[data-lang="he"] .hint,.plate[data-lang="he"] .k,.plate[data-lang="he"] .date,.plate[data-lang="he"] .src b{font-family:var(--he);letter-spacing:0;text-transform:none}
+.plate[data-lang="ar"] .anchor-card h3,.plate[data-lang="ar"] .hint,.plate[data-lang="ar"] .k,.plate[data-lang="ar"] .date,.plate[data-lang="ar"] .src b{font-family:var(--ar);letter-spacing:0;text-transform:none}
+.plate[data-lang="ar"] .anchor-card p{line-height:1.75}
+.plate[data-lang="he"] .k,.plate[data-lang="ar"] .k{font-size:13px}
+.plate[data-lang="he"] .src b,.plate[data-lang="ar"] .src b{font-size:12.5px}
+.plate[data-lang="he"] .nm[lang="he"],.plate[data-lang="ar"] .nm[lang="ar"]{font-size:28px}
+.nm[lang="he"]{font-family:var(--he)} .nm[lang="ar"]{font-family:var(--ar)}
+.lang-he .m-lbl,.lang-he .m-water-t,.lang-he .m-sel-lbl{font-family:var(--he);font-style:normal}
+.lang-ar .m-lbl,.lang-ar .m-water-t,.lang-ar .m-sel-lbl{font-family:var(--ar);font-style:normal}
+.lang-he .m-lbl,.lang-ar .m-lbl{font-size:11px}
+.anchor-card[dir="rtl"]{padding:18px 18px 18px 4px}
+.plate-body:has(.anchor-card[dir="rtl"]){direction:rtl}
+.plate-body:has(.anchor-card[dir="rtl"]) .map{border-right:none;border-left:1px solid var(--plate-line)}
+.stop span{font-size:11px}
+@media (max-width:760px){.plate-body:has(.anchor-card[dir="rtl"]) .map{border-left:none}.anchor-card[dir="rtl"]{padding:16px 4px}}
+
+
+/* demo framing, place tabs, clickable pins */
+.demo-tag{color:#8A4B1F;font-weight:600}
+.tabs{display:flex;gap:4px}
+.tab{all:unset;cursor:pointer;font-family:var(--serif);font-size:15px;letter-spacing:0;text-transform:none;color:#7A6643;padding:3px 10px;border:1px solid transparent;border-radius:2px}
+.tab:hover{color:#2E2516}
+.tab[aria-pressed="true"]{color:#2E2516;border-color:#B9A272;background:#F6EEDC;cursor:default}
+.tab:focus-visible{outline:2px solid #A3772B;outline-offset:2px}
+.plate[data-lang="he"] .tab{font-family:var(--he)} .plate[data-lang="ar"] .tab{font-family:var(--ar)}
+.demo-note{margin:10px 0 0;padding:9px 12px;border:1px dashed #B9A272;background:#F6EEDC;font-family:var(--sans);font-size:12.5px;line-height:1.45;color:#5B4A2E}
+.plate[data-lang="he"] .demo-note{font-family:var(--he);font-size:14px} .plate[data-lang="ar"] .demo-note{font-family:var(--ar);font-size:13.5px;line-height:1.7}
+.pin{cursor:pointer}
+.pin .m-hit{fill:transparent}
+.pin:not(.on) .m-sel-ring{stroke:#8A7550}
+.pin:not(.on) .m-sel{fill:#8A7550}
+.pin:not(.on) .m-sel-lbl{font-weight:500;fill:#5B4A2E}
+.pin:hover .m-sel-lbl{fill:#2E2516}
+.stop span{font-size:10.5px}
+
+footer a{color:var(--gold-2)}
+footer{padding-block:28px;color:var(--white-3);font-family:var(--sans);font-size:13px;border-top:1px solid var(--line-d);background:var(--black)}
+
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:1fr}
+  .lead{max-width:44ch}
+}
+@media (max-width:760px){
+  .sec,.stages,.qs,.axes,.ask-grid,.status-box{grid-template-columns:1fr}
+  .stage+.stage{padding-left:0;border-left:none;border-top:1px solid var(--rule)}
+  .plate-body{grid-template-columns:1fr}
+  .map{border-right:none;border-bottom:1px solid var(--plate-line)}
+  .anchor-card{padding:16px 4px}
+}
+@media (max-width:480px){
+  body{font-size:17px}
+  .stop span{font-size:10px}
+}
+@media (prefers-reduced-motion:reduce){.pulse{animation:none;opacity:.5}.btn,.stop i{transition:none}html{scroll-behavior:auto}}
+</style>
+
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="status">In planning</span>
+      <h1>HolyLand<br><em>Historical Atlas</em></h1>
+      <div class="tri"><span lang="he" dir="rtl">האטלס ההיסטורי של ארץ הקודש</span><span lang="ar" dir="rtl">الأطلس التاريخي للأرض المقدسة</span></div>
+      <p class="lead">A map of the Holy Land’s history in English, Arabic and Hebrew. Every claim on it is tied to a source you can open and read.</p>
+      <div class="hero-acts"><a class="btn primary" href="#involved">Get involved</a><a class="more" href="#anchors">How truth anchors work →</a></div>
+    </div>
+
+    <figure class="plate" id="plate" aria-label="Simplified demo of the Atlas map" style="margin:0">
+      <div class="plate-head"><span class="demo-tag" data-t="ill"></span><span class="tabs" role="group" aria-label="Choose a place"><button type="button" class="tab" data-place="jer"></button><button type="button" class="tab" data-place="gaza"></button></span></div>
+      <p class="demo-note" data-t="note"></p>
+      <div class="plate-body">
+        <div class="map" id="map"></div>
+        <div class="anchor-card" id="card" aria-live="polite">
+          <div class="k"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5.5" fill="none" stroke="#A3772B" stroke-width="1.4" stroke-dasharray="3 2"/><circle cx="7" cy="7" r="2.4" fill="#A3772B"/></svg><span data-t="anchor"></span></div>
+          <div class="place" role="group" aria-label="Choose a language">
+            <button type="button" class="nm" data-lang="en" lang="en"></button>
+            <button type="button" class="nm" data-lang="he" lang="he"></button>
+            <button type="button" class="nm" data-lang="ar" lang="ar"></button>
+          </div>
+          <div class="hint" data-t="hint"></div>
+          <div class="date" id="a-date"></div>
+          <h3 id="a-title"></h3>
+          <p id="a-text"></p>
+          <div class="src"><b data-t="source"></b><span id="a-src"></span></div>
+        </div>
+      </div>
+      <div class="scrub" role="group" aria-label="Choose a period">
+        <div class="scrub-row" id="stops"></div>
+      </div>
+    </figure>
+  </div>
+</header>
+
+<main class="paper">
+  <section class="block"><div class="wrap sec">
+    <div><div class="label">The problem</div><h2>Everyone argues about this land’s history. Few can check the sources.</h2></div>
+    <div class="body">
+      <p class="big">People argue about the Holy Land’s past in newspapers, classrooms, parliaments and at the dinner table.</p>
+      <p>The evidence they argue over is scattered across archives, excavation reports and libraries on three continents, and written in Hebrew, Arabic, Greek, Latin, Aramaic, Syriac, Ottoman Turkish and more. Most readers meet it secondhand, already arranged to support a side.</p>
+      <p>The Atlas puts the evidence itself on a map, where anyone can find it.</p>
+    </div>
+  </div></section>
+
+  <section class="block" id="anchors"><div class="wrap sec">
+    <div><div class="label">The core</div><h2>Truth anchors</h2></div>
+    <div class="body">
+      <p class="big">A truth anchor is one fact about one place at one time: who lived there, who ruled it, what it was called, what stood there.</p>
+      <p>Each anchor sits on the map with the evidence that demonstrates it: the source in its original language, a translation, and a citation. An anchor holds what the evidence can show and what scholars from every community can agree on. Scholars review each one before it goes up.</p>
+      <div class="stages">
+        <div class="stage"><div class="label">Stage one</div><h3>Build the anchors</h3><p>Sourced facts, laid out across place, time and peoples. This is the Atlas itself, and the heart of the project.</p></div>
+        <div class="stage"><div class="label">Stage two</div><h3>Write from the anchors</h3><p>Essays, symposia and longer studies take up the hard questions. Every claim in them links back to an anchor, so a reader can check each step of the argument.</p></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="block"><div class="wrap">
+    <div class="sec" style="margin-bottom:28px">
+      <div><div class="label">What you could trace</div><h2>Questions people ask, followed through the sources</h2></div>
+      <div class="body"><p>Some questions come from one community and some from another. The Atlas answers each the same way: place by place and period by period, with the evidence attached.</p></div>
+    </div>
+    <ul class="qs">
+      <li>Jewish communities in Gaza<small>From antiquity through the medieval and Ottoman periods to 1929, and from Gush Katif to 2005.</small></li>
+      <li>The Arab villages emptied in 1947–49<small>When each was emptied, what the sources record about how, and what stands there today.</small></li>
+      <li>How the Arab population of the land grew<small>From the Nabataeans and Ghassanids before Islam, through the conquest and the Ottoman era, to the British Mandate.</small></li>
+      <li>The name “Palestine”<small>From Herodotus and the Roman province to the Islamic district of Filastin, the Mandate, and today.</small></li>
+      <li>Jewish life between the Romans and Zionism<small>Safed, Tiberias, Hebron, Peki’in and Jerusalem across seventeen centuries.</small></li>
+      <li>Christian Bethlehem<small>The town’s churches, pilgrims and Christian families over the past century.</small></li>
+      <li>Jerusalem’s quarters<small>Who lived where, including the Jewish Quarter after 1948 and the Mughrabi Quarter in 1967.</small></li>
+      <li>One place, many names<small>Shechem, Neapolis and Nablus; Beit She’an, Scythopolis and Beisan.</small></li>
+    </ul>
+  </div></section>
+
+  <section class="block"><div class="wrap">
+    <div class="label" style="margin-bottom:18px">Three ways in</div>
+    <div class="axes">
+      <div class="axis"><div class="label">Place</div><h3>Zoom</h3><p>Move from the whole region to a valley, a city, a single site. Each level brings its own detail and its own stories.</p></div>
+      <div class="axis"><div class="label">Time</div><h3>Move through the periods</h3><p>Keep the same landscape and change the century. Watch who lived there, who ruled it, and what it was called.</p></div>
+      <div class="axis"><div class="label">Peoples</div><h3>Follow a community</h3><p>Choose Jews, Arabs, Samaritans, Druze, Christians, Circassians or a people of the past, and the map traces where they lived and moved.</p></div>
+    </div>
+  </div></section>
+
+  <section class="block"><div class="wrap sec">
+    <div><div class="label">Who builds it</div><h2>Scholars from every community</h2></div>
+    <div class="body">
+      <p>The Atlas is founded by Zev Farber, a scholar of the Bible and the ancient Near East and Senior Editor at TheTorah.com.</p>
+      <p>It will be built by historians, archaeologists and philologists of every background, Jewish, Muslim, Christian, Druze and others, working in the region and beyond it. Each period gets its own coordinator. Native speakers edit the Arabic and Hebrew editions. A scholarly board decides which sources ground the Atlas and how its peoples are described.</p>
+    </div>
+  </div></section>
+
+  <section class="block" style="border-bottom:none"><div class="wrap sec">
+    <div><div class="label">Where things stand</div><h2>The project is at its starting line</h2></div>
+    <div class="status-box">
+      <div><span class="label">Exists now</span><p>The idea, a written design, and scholars and institutions who want to take part.</p></div>
+      <div><span class="label">Missing</span><p>Funding. The project has none yet and no staff.</p></div>
+      <div><span class="label">Next</span><p>A founding grant, a small team, and the first anchors.</p></div>
+    </div>
+  </div></section>
+</main>
+
+<section class="asks" id="involved"><div class="wrap">
+  <div class="label">Get involved</div>
+  <h2>Three ways to take part</h2>
+  <div class="ask-grid">
+    <article class="ask">
+      <div class="label">Fund it</div>
+      <h3>Support the founding stage</h3>
+      <p>A founding grant pays for the first team and the first anchors. Early funders shape what gets built first.</p>
+      <div class="go"><a class="btn primary" href="mailto:connect@holylandhistoricalatlas.org?subject=Funding%20the%20HolyLand%20Historical%20Atlas">Talk about funding</a><a class="more" href="mailto:connect@holylandhistoricalatlas.org?subject=Request%20for%20the%20full%20plan">Ask for the full plan →</a></div>
+    </article>
+    <article class="ask">
+      <div class="label">Partner with it</div>
+      <h3>Bring your scholars and collections</h3>
+      <p>Universities, libraries, museums and archives: join as a research partner, contribute sources, or host a stage of the work.</p>
+      <div class="go"><a class="btn" href="mailto:connect@holylandhistoricalatlas.org?subject=Partnering%20with%20the%20HolyLand%20Historical%20Atlas">Propose a partnership</a></div>
+    </article>
+    <article class="ask">
+      <div class="label">Follow it</div>
+      <h3>Hear when the first anchors go up</h3>
+      <p>Tell me what you would want to trace. The questions people send help set what we build first.</p>
+      <div class="go"><a class="btn primary" href="mailto:connect@holylandhistoricalatlas.org?subject=Add%20me%20to%20the%20Atlas%20list">Join the list</a><a class="more" href="mailto:connect@holylandhistoricalatlas.org?subject=A%20question%20I%20would%20want%20to%20trace">Send a question →</a></div>
+    </article>
+  </div>
+</div></section>
+
+<footer><div class="wrap">© 2026 HolyLand Historical Atlas, in planning · Founded by Zev I. Farber · <a href="mailto:connect@holylandhistoricalatlas.org">connect@holylandhistoricalatlas.org</a></div></footer>
+
+<script>
+(function(){
+  // ---------- text in three languages (Hebrew and Arabic need native-speaker review) ----------
+  const UI={
+    en:{ill:"Simplified demo",anchor:"Sample entry",source:"Where the evidence will come from",hint:"Click a name to read in that language",
+        note:"This is a simplified demo. The real Atlas will be a fully designed map you can zoom into. The entries here are short summaries for illustration. In the Atlas, each anchor will carry its source text, a translation and a citation, checked by scholars.",
+        km:"20 km",sea:["Mediterranean","Sea"],dead:"Dead Sea",jordan:"Jordan"},
+    he:{ill:"הדגמה מפושטת",anchor:"רשומה לדוגמה",source:"מאין יבואו הראיות",hint:"לחצו על שם כדי לקרוא בשפה זו",
+        note:"זוהי הדגמה מפושטת. האטלס עצמו יהיה מפה מעוצבת במלואה שאפשר להתקרב אל תוכה. הרשומות כאן הן סיכומים קצרים להמחשה. באטלס יכלול כל עוגן את טקסט המקור, תרגום והפניה, לאחר בדיקה של חוקרים.",
+        km:"20 ק״מ",sea:["הים","התיכון"],dead:"ים המלח",jordan:"הירדן"},
+    ar:{ill:"عرض مبسّط",anchor:"مدخل نموذجي",source:"من أين ستأتي الأدلة",hint:"انقر على اسم للقراءة بتلك اللغة",
+        note:"هذا عرض مبسّط. سيكون الأطلس الفعلي خريطة مصمّمة بالكامل يمكن التكبير داخلها. المداخل هنا ملخّصات قصيرة للتوضيح. وفي الأطلس ستحمل كل مرساة نصَّ مصدرها وترجمةً وإحالةً، بعد أن يراجعها باحثون.",
+        km:"20 كم",sea:["البحر","المتوسط"],dead:"البحر الميت",jordan:"نهر الأردن"}
+  };
+  const NAMES={ // en, he, ar
+    Gaza:["Gaza","עזה","غزة"],Jerusalem:["Jerusalem","ירושלים","القدس"],Hebron:["Hebron","חברון","الخليل"],Beersheba:["Beersheba","באר שבע","بئر السبع"],
+    Jaffa:["Jaffa","יפו","يافا"],Caesarea:["Caesarea","קיסריה","قيسارية"],Acre:["Acre","עכו","عكا"],Nablus:["Nablus","שכם","نابلس"],
+    Nazareth:["Nazareth","נצרת","الناصرة"],Tiberias:["Tiberias","טבריה","طبريا"],Safed:["Safed","צפת","صفد"],Jericho:["Jericho","יריחו","أريحا"],
+    Amman:["Amman","עמאן","عمّان"],Tyre:["Tyre","צור","صور"]
+  };
+  const LI={en:0,he:1,ar:2};
+  const GAZA=[
+    {en:{y:"c. 1457 BCE",date:"15th century BCE",title:"An Egyptian stronghold",text:"Thutmose III’s army reaches Gaza on its march north to Megiddo. The town serves as Egypt’s base on the coastal road into Canaan.",src:"Annals of Thutmose III, Temple of Karnak, Thebes."},
+     he:{y:"כ־1457 לפנה״ס",date:"המאה ה־15 לפנה״ס",title:"מעוז מצרי",text:"צבאו של תחותמס השלישי מגיע לעזה בדרכו צפונה למגידו. העיר משמשת בסיס למצרים על דרך החוף לכנען.",src:"דברי הימים של תחותמס השלישי, מקדש כרנך, תבאי."},
+     ar:{y:"نحو 1457 ق.م",date:"القرن الخامس عشر ق.م",title:"حصن مصري",text:"يصل جيش تحتمس الثالث إلى غزة في زحفه شمالًا نحو مجدو، وتصبح المدينة قاعدةً لمصر على الطريق الساحلي إلى كنعان.",src:"حوليات تحتمس الثالث، معبد الكرنك، طيبة."}},
+    {en:{y:"Iron Age",date:"c. 1150–600 BCE",title:"A Philistine city",text:"Gaza is one of five Philistine city-states on the southern coast, with Ashkelon, Ashdod, Ekron and Gath. The Book of Judges sets the end of its Samson story in Gaza’s temple of Dagon. Assyrian inscriptions name Hanunu, king of Gaza, in 734 BCE.",src:"Judges 16; Joshua 13:3; inscriptions of Tiglath-pileser III."},
+     he:{y:"תקופת הברזל",date:"כ־1150–600 לפנה״ס",title:"עיר פלשתית",text:"עזה היא אחת מחמש ערי הפלשתים בחוף הדרומי, לצד אשקלון, אשדוד, עקרון וגת. ספר שופטים ממקם את סוף סיפור שמשון במקדש דגון שבעזה. כתובות אשוריות מזכירות את חנונו, מלך עזה, בשנת 734 לפנה״ס.",src:"שופטים טז; יהושע יג 3; כתובות תגלת פלאסר השלישי."},
+     ar:{y:"العصر الحديدي",date:"نحو 1150–600 ق.م",title:"مدينة فلستية",text:"غزة إحدى المدن الفلستية الخمس على الساحل الجنوبي، إلى جانب عسقلان وأسدود وعقرون وجتّ. ويجعل سفر القضاة خاتمة قصة شمشون في معبد داجون في غزة. وتذكر النقوش الآشورية حانونو ملك غزة سنة 734 ق.م.",src:"سفر القضاة 16؛ سفر يشوع 13: 3؛ نقوش تغلث فلاسر الثالث."}},
+    {en:{y:"c. 430 BCE",date:"5th century BCE",title:"Herodotus names the coast “Palestine”",text:"Herodotus describes the coast from Phoenicia to the city of Kadytis, generally identified with Gaza, as belonging to “the Syrians called Palestinians.”",src:"Herodotus, Histories 3.5."},
+     he:{y:"כ־430 לפנה״ס",date:"המאה ה־5 לפנה״ס",title:"הרודוטוס קורא לחוף „פלשתינה“",text:"הרודוטוס מתאר את החוף מפיניקיה ועד העיר קדיטיס, המזוהה בדרך כלל עם עזה, כשייך ל„סורים הנקראים פלשתינים“.",src:"הרודוטוס, היסטוריות ג 5."},
+     ar:{y:"نحو 430 ق.م",date:"القرن الخامس ق.م",title:"هيرودوت يسمّي الساحل «فلسطين»",text:"يصف هيرودوت الساحل الممتد من فينيقيا إلى مدينة قاديتيس، التي يُرجَّح أنها غزة، بأنه يعود إلى «السوريين الذين يُسمَّون الفلسطينيين».",src:"هيرودوت، التواريخ 3: 5."}},
+    {en:{y:"1149",date:"1149–50 CE",title:"A Templar fortress",text:"King Baldwin III of Jerusalem rebuilds the citadel at Gaza and hands it to the Knights Templar to guard the road to Egypt.",src:"William of Tyre, Chronicle, book 17."},
+     he:{y:"1149",date:"1149–1150 לספירה",title:"מבצר טמפלרי",text:"בולדווין השלישי, מלך ירושלים, בונה מחדש את המצודה בעזה ומוסר אותה לאבירי המקדש (הטמפלרים) כדי לשמור על הדרך למצרים.",src:"ויליאם מצור, הכרוניקה, ספר 17."},
+     ar:{y:"1149",date:"1149–1150 م",title:"قلعة لفرسان الهيكل",text:"يعيد بلدوين الثالث، ملك مملكة القدس، بناء قلعة غزة ويسلّمها إلى فرسان الهيكل (الداوية) لحراسة الطريق إلى مصر.",src:"وليم الصوري، التاريخ، الكتاب 17."}},
+    {en:{y:"1488",date:"1488 CE",title:"A Jewish community on the road to Jerusalem",text:"Rabbi Obadiah of Bertinoro stops in Gaza on his journey to Jerusalem and describes the Jews living there.",src:"Obadiah of Bertinoro, letter to his father, 1488."},
+     he:{y:"1488",date:"1488 לספירה",title:"קהילה יהודית בדרך לירושלים",text:"רבי עובדיה מברטנורא עובר בעזה במסעו לירושלים ומתאר את היהודים החיים בה.",src:"רבי עובדיה מברטנורא, איגרת לאביו, 1488."},
+     ar:{y:"1488",date:"1488 م",title:"جماعة يهودية على الطريق إلى القدس",text:"يتوقف الحاخام عوبديا البرتنوري في غزة في رحلته إلى القدس، ويصف اليهود المقيمين فيها.",src:"عوبديا البرتنوري، رسالة إلى أبيه، 1488."}},
+    {en:{y:"1500s",date:"16th century CE",title:"An Ottoman district capital",text:"Gaza becomes the seat of a sanjak, a district of the province of Damascus. Ottoman tax registers list its quarters and households.",src:"Ottoman tahrir (tax survey) registers for the Sanjak of Gaza."},
+     he:{y:"המאה ה־16",date:"המאה ה־16 לספירה",title:"בירת מחוז עות׳מאני",text:"עזה הופכת למושב של סנג׳ק, מחוז בפרובינציית דמשק. פנקסי המס העות׳מאניים מונים את שכונותיה ואת משקי הבית שבה.",src:"פנקסי התחריר (סקרי המס) העות׳מאניים לסנג׳ק עזה."},
+     ar:{y:"القرن 16",date:"القرن السادس عشر م",title:"مركز لواء عثماني",text:"تصبح غزة مركز سنجق (لواء) تابع لولاية دمشق، وتسجّل دفاتر الضرائب العثمانية أحياءها وأُسَرها.",src:"دفاتر التحرير (المسوح الضريبية) العثمانية للواء غزة."}},
+    {en:{y:"1949",date:"1949 CE",title:"The Gaza Strip",text:"The armistice line between Israel and Egypt draws the boundary of the Gaza Strip. Refugees from the 1948 war come to outnumber the people who already lived there.",src:"Egyptian–Israeli General Armistice Agreement, 24 February 1949; UNRWA registration records."},
+     he:{y:"1949",date:"1949 לספירה",title:"רצועת עזה",text:"קו שביתת הנשק בין ישראל למצרים משרטט את גבולות רצועת עזה. פליטי מלחמת 1948 עולים במספרם על התושבים שחיו בה קודם.",src:"הסכם שביתת הנשק הכללי בין מצרים לישראל, 24 בפברואר 1949; רישומי אונר״א."},
+     ar:{y:"1949",date:"1949 م",title:"قطاع غزة",text:"يرسم خط الهدنة بين إسرائيل ومصر حدود قطاع غزة، ويفوق عدد لاجئي حرب 1948 عدد السكان الذين كانوا يقيمون فيه من قبل.",src:"اتفاقية الهدنة العامة المصرية الإسرائيلية، 24 شباط/فبراير 1949؛ سجلات الأونروا."}}
+  ];
+
+  const JER=[
+    {en:{y:"c. 1350 BCE",date:"14th century BCE",title:"A Canaanite city under Egypt",text:"Abdi-Heba, ruler of Jerusalem, writes to the pharaoh asking for troops against his rivals. His letters call the city Urusalim.",src:"Amarna letters EA 285–290."},
+     he:{y:"כ־1350 לפנה״ס",date:"המאה ה־14 לפנה״ס",title:"עיר כנענית תחת מצרים",text:"עבדי־חבה, שליט ירושלים, כותב לפרעה ומבקש חיילים נגד יריביו. במכתביו נקראת העיר אורוסלים.",src:"מכתבי אל־עמארנה EA 285–290."},
+     ar:{y:"نحو 1350 ق.م",date:"القرن الرابع عشر ق.م",title:"مدينة كنعانية تحت حكم مصر",text:"يكتب عبدي خيبا، حاكم أورشليم، إلى فرعون يطلب جنودًا لمواجهة خصومه، وتسمّي رسائله المدينة «أوروسالم».",src:"رسائل تل العمارنة EA 285–290."}},
+    {en:{y:"701 BCE",date:"701 BCE",title:"Hezekiah under siege",text:"The Assyrian king Sennacherib invades Judah and records that he shut up Hezekiah of Judah in Jerusalem “like a bird in a cage.”",src:"Annals of Sennacherib; 2 Kings 18–19."},
+     he:{y:"701 לפנה״ס",date:"701 לפנה״ס",title:"חזקיהו במצור",text:"סנחריב מלך אשור פולש ליהודה וכותב שסגר על חזקיהו מלך יהודה בירושלים „כציפור בכלוב“.",src:"מנסרות סנחריב; מלכים ב יח–יט."},
+     ar:{y:"701 ق.م",date:"701 ق.م",title:"حزقيا تحت الحصار",text:"يغزو الملك الآشوري سنحاريب مملكة يهوذا، ويسجّل أنه حبس حزقيا ملك يهوذا في أورشليم «كطائر في قفص».",src:"حوليات سنحاريب؛ سفر الملوك الثاني 18–19."}},
+    {en:{y:"70 CE",date:"70 CE",title:"The Romans burn the Temple",text:"Titus’s legions take Jerusalem and burn the Temple, crushing the Jewish revolt. The Arch of Titus in Rome shows the Temple’s menorah carried in his triumph.",src:"Josephus, Jewish War 6; the Arch of Titus, Rome."},
+     he:{y:"70 לספירה",date:"70 לספירה",title:"הרומאים שורפים את המקדש",text:"לגיונותיו של טיטוס כובשים את ירושלים ושורפים את בית המקדש, ומדכאים את המרד היהודי. שער טיטוס ברומא מתאר את מנורת המקדש נישאת בתהלוכת הניצחון שלו.",src:"יוסף בן מתתיהו, מלחמת היהודים ו; שער טיטוס, רומא."},
+     ar:{y:"70 م",date:"70 م",title:"الرومان يحرقون الهيكل",text:"تستولي فيالق تيطس على أورشليم وتحرق الهيكل، فتُخمد الثورة اليهودية. ويُظهر قوس تيطس في روما شمعدان الهيكل محمولًا في موكب نصره.",src:"يوسيفوس، حروب اليهود 6؛ قوس تيطس، روما."}},
+    {en:{y:"500s",date:"6th century CE",title:"Jerusalem on a mosaic map",text:"A mosaic floor in a church at Madaba, east of the Jordan, maps the Holy Land with Jerusalem at its center: the walls, the gates, the colonnaded main street and the Church of the Holy Sepulchre.",src:"The Madaba Map, Church of St. George, Madaba, Jordan."},
+     he:{y:"המאה ה־6",date:"המאה ה־6 לספירה",title:"ירושלים במפת פסיפס",text:"רצפת פסיפס בכנסייה במידבא, ממזרח לירדן, משרטטת את ארץ הקודש וירושלים במרכזה: החומות, השערים, הרחוב הראשי המוקף עמודים וכנסיית הקבר.",src:"מפת מידבא, כנסיית גאורגיוס הקדוש, מידבא, ירדן."},
+     ar:{y:"القرن 6",date:"القرن السادس م",title:"القدس على خريطة فسيفساء",text:"ترسم أرضية فسيفساء في كنيسة بمادبا، شرقي نهر الأردن، الأرضَ المقدسة وفي وسطها القدس: الأسوار والأبواب والشارع الرئيسي ذو الأعمدة وكنيسة القيامة.",src:"خريطة مادبا، كنيسة القديس جاورجيوس، مادبا، الأردن."}},
+    {en:{y:"691",date:"691–92 CE (72 AH)",title:"The Dome of the Rock",text:"The Umayyad caliph Abd al-Malik builds the Dome of the Rock on the Temple Mount, al-Haram al-Sharif. Its mosaic inscription gives the year 72 of the Hijra.",src:"The dedicatory inscription inside the Dome of the Rock."},
+     he:{y:"691",date:"691–692 לספירה (72 להג׳רה)",title:"כיפת הסלע",text:"הח׳ליפה האומיי עבד אל־מלכ בונה את כיפת הסלע בהר הבית, אל־חרם א־שריף. כתובת הפסיפס שבה נושאת את שנת 72 להג׳רה.",src:"כתובת ההקדשה בתוך כיפת הסלע."},
+     ar:{y:"691",date:"72 هـ / 691–692 م",title:"قبة الصخرة",text:"يبني الخليفة الأموي عبد الملك بن مروان قبة الصخرة في الحرم الشريف، جبل الهيكل. ويحمل نقشها الفسيفسائي سنة اثنتين وسبعين للهجرة.",src:"النقش التأسيسي داخل قبة الصخرة."}},
+    {en:{y:"1187",date:"1187 CE",title:"Saladin takes Jerusalem",text:"Saladin takes the city from the Crusaders, who had held it since 1099. Soon after, Jews return to live in Jerusalem.",src:"Baha al-Din Ibn Shaddad, Life of Saladin; Judah al-Harizi, Tahkemoni."},
+     he:{y:"1187",date:"1187 לספירה",title:"צלאח א־דין כובש את ירושלים",text:"צלאח א־דין כובש את העיר מידי הצלבנים, שהחזיקו בה מאז 1099. זמן קצר אחר כך שבים יהודים לגור בירושלים.",src:"בהאא א־דין אבן שדאד, תולדות צלאח א־דין; יהודה אלחריזי, תחכמוני."},
+     ar:{y:"1187",date:"1187 م",title:"صلاح الدين يستعيد القدس",text:"يستعيد صلاح الدين المدينة من الصليبيين الذين حكموها منذ 1099، وبعد ذلك بقليل يعود يهود إلى السكن في القدس.",src:"بهاء الدين ابن شداد، النوادر السلطانية والمحاسن اليوسفية؛ يهودا الحريزي، تحكموني."}},
+    {en:{y:"1537",date:"1537–41 CE",title:"Suleiman’s walls",text:"Sultan Suleiman the Magnificent rebuilds the walls of Jerusalem. The walls that stand today are his, and Arabic inscriptions on the gates date the work.",src:"Building inscriptions on the gates of the Old City."},
+     he:{y:"1537",date:"1537–1541 לספירה",title:"חומות סולימאן",text:"הסולטן סולימאן המפואר בונה מחדש את חומות ירושלים. החומות העומדות היום הן שלו, וכתובות בערבית על השערים מתארכות את העבודה.",src:"כתובות הבנייה על שערי העיר העתיקה."},
+     ar:{y:"1537",date:"1537–1541 م",title:"أسوار السلطان سليمان",text:"يعيد السلطان سليمان القانوني بناء أسوار القدس. والأسوار القائمة اليوم من عمله، وتؤرّخ النقوش العربية على الأبواب هذا البناء.",src:"نقوش البناء على أبواب البلدة القديمة."}},
+    {en:{y:"1948",date:"1948 CE",title:"A divided city",text:"The 1948 war splits Jerusalem. Jordan holds the Old City and the east, and the Jewish Quarter’s residents leave after it surrenders. Israel holds the west, and the Arab residents of neighborhoods such as Katamon and Talbiya leave their homes.",src:"Israel–Jordan General Armistice Agreement, 3 April 1949."},
+     he:{y:"1948",date:"1948 לספירה",title:"עיר מחולקת",text:"מלחמת 1948 מפצלת את ירושלים. ירדן מחזיקה בעיר העתיקה ובמזרח, ותושבי הרובע היהודי עוזבים אחרי כניעתו. ישראל מחזיקה במערב, והתושבים הערבים של שכונות כמו קטמון וטלביה עוזבים את בתיהם.",src:"הסכם שביתת הנשק הכללי בין ישראל לירדן, 3 באפריל 1949."},
+     ar:{y:"1948",date:"1948 م",title:"مدينة مقسّمة",text:"تقسم حرب 1948 القدس. يسيطر الأردن على البلدة القديمة والقسم الشرقي، ويغادر سكان الحي اليهودي بعد استسلامه. وتسيطر إسرائيل على القسم الغربي، ويغادر السكان العرب بيوتهم في أحياء مثل القطمون والطالبية.",src:"اتفاقية الهدنة العامة الأردنية الإسرائيلية، 3 نيسان/أبريل 1949."}},
+    {en:{y:"1967",date:"1967 CE",title:"Under Israeli rule",text:"Israel takes the Old City and East Jerusalem in the Six-Day War. Days later, the Mughrabi Quarter beside the Western Wall is demolished to open a plaza.",src:"Israeli government records and press reports, June 1967."},
+     he:{y:"1967",date:"1967 לספירה",title:"תחת שלטון ישראל",text:"ישראל כובשת את העיר העתיקה ואת מזרח ירושלים במלחמת ששת הימים. כעבור ימים ספורים נהרסת שכונת המוגרבים שליד הכותל המערבי כדי לפנות רחבה.",src:"רשומות ממשלת ישראל ודיווחי עיתונות, יוני 1967."},
+     ar:{y:"1967",date:"1967 م",title:"تحت الحكم الإسرائيلي",text:"تستولي إسرائيل على البلدة القديمة والقدس الشرقية في حرب حزيران 1967. وبعد أيام يُهدم حيّ المغاربة المجاور لحائط البراق (الحائط الغربي) لإفساح ساحة.",src:"سجلات الحكومة الإسرائيلية والتقارير الصحفية، حزيران/يونيو 1967."}}
+  ];
+  const PLACES={jer:{key:"Jerusalem",lat:31.78,lon:35.23,A:JER,start:0},gaza:{key:"Gaza",lat:31.50,lon:34.46,A:GAZA,start:1}};
+  // ---------- projection: equirectangular, cos(lat) corrected ----------
+  const LON0=34.0, LON1=36.1, LAT0=30.95, LAT1=33.35, K=220, CX=Math.cos(32.1*Math.PI/180);
+  const W=(LON1-LON0)*CX*K, H=(LAT1-LAT0)*K;
+  const P=(lat,lon)=>[(lon-LON0)*CX*K,(LAT1-lat)*K];
+  const smooth=(pts,close)=>{
+    const p=pts.map(([a,b])=>P(a,b)); let d=`M${p[0][0].toFixed(1)},${p[0][1].toFixed(1)}`; const n=p.length;
+    for(let i=0;i<(close?n:n-1);i++){
+      const p0=p[(i-1+n)%n],p1=p[i],p2=p[(i+1)%n],p3=p[(i+2)%n];
+      const a=close||i>0?p0:p1, b=close||i<n-2?p3:p2;
+      const c1=[p1[0]+(p2[0]-a[0])/6,p1[1]+(p2[1]-a[1])/6], c2=[p2[0]-(b[0]-p1[0])/6,p2[1]-(b[1]-p1[1])/6];
+      d+=`C${c1[0].toFixed(1)},${c1[1].toFixed(1)} ${c2[0].toFixed(1)},${c2[1].toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`;
+    }
+    return d+(close?'Z':'');
+  };
+  const coast=[[31.12,33.90],[31.20,34.10],[31.30,34.24],[31.42,34.37],[31.52,34.44],[31.67,34.55],[31.80,34.64],[32.05,34.75],[32.17,34.80],[32.33,34.85],[32.50,34.89],[32.68,34.94],[32.83,34.97],[32.80,35.03],[32.88,35.07],[33.00,35.10],[33.09,35.11],[33.27,35.20],[33.42,35.27],[33.60,35.38]];
+  const coastD=smooth(coast,false);
+  const [tlx,tly]=P(33.7,33.8),[blx,bly]=P(31.12,33.8),[ex,ey]=P(33.7,35.38);
+  const seaD=coastD+`L${ex},${ey}L${tlx},${tly}L${blx},${bly}Z`;
+  const galilee=[[32.89,35.59],[32.86,35.65],[32.79,35.65],[32.72,35.60],[32.75,35.55],[32.83,35.53]];
+  const deadSea=[[31.77,35.52],[31.74,35.58],[31.55,35.59],[31.35,35.56],[31.20,35.53],[31.08,35.46],[31.12,35.40],[31.30,35.40],[31.50,35.45],[31.70,35.47]];
+  const jordan=[[32.71,35.57],[32.55,35.58],[32.40,35.55],[32.20,35.56],[32.00,35.53],[31.77,35.55]];
+  const upperJ=[[33.30,35.62],[33.10,35.61],[32.95,35.63],[32.89,35.62]];
+  const hills=[
+    [[31.30,34.98],[31.55,35.02],[31.85,35.12],[32.15,35.18],[32.45,35.20],[32.50,35.32],[32.20,35.38],[31.85,35.36],[31.50,35.28],[31.25,35.18]],
+    [[32.75,35.20],[32.95,35.22],[33.15,35.30],[33.20,35.48],[33.00,35.50],[32.80,35.42]],
+    [[31.10,35.62],[31.60,35.66],[32.10,35.68],[32.60,35.72],[32.62,35.95],[32.00,35.98],[31.40,35.88],[31.05,35.75]],
+    [[32.66,34.98],[32.75,35.05],[32.70,35.12],[32.60,35.10]]
+  ];
+  const places=[["Hebron",31.53,35.10,"l"],["Beersheba",31.25,34.79,"r"],["Jaffa",32.05,34.75,"r"],["Caesarea",32.50,34.89,"r"],["Acre",32.92,35.08,"r"],["Nablus",32.22,35.26,"r"],["Nazareth",32.70,35.30,"r"],["Tiberias",32.79,35.53,"l"],["Safed",32.96,35.50,"l"],["Jericho",31.86,35.46,"r"],["Amman",31.95,35.93,"l"],["Tyre",33.27,35.20,"r"]];
+
+  function drawMap(lang){
+    const u=UI[lang], li=LI[lang];
+    let s=`<svg viewBox="0 0 ${W.toFixed(0)} ${H.toFixed(0)}" xmlns="http://www.w3.org/2000/svg" class="lang-${lang}" direction="ltr">`;
+    s+=`<defs><filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="9"/></filter></defs>`;
+    s+=`<rect class="m-land" width="${W}" height="${H}"/>`;
+    s+=`<g filter="url(#soft)" opacity=".85">${hills.map(h=>`<path class="m-hill" d="${smooth(h,true)}"/>`).join('')}</g>`;
+    s+=`<path class="m-sea" d="${seaD}"/><path class="m-coast" d="${coastD}"/>`;
+    [31.5,32,32.5,33].forEach(l=>{const[,y]=P(l,0);s+=`<line class="m-grat" x1="0" x2="${W}" y1="${y}" y2="${y}"/><text class="m-grat-t" x="4" y="${y-3}">${l.toFixed(1)}°N</text>`});
+    [34.5,35,35.5,36].forEach(l=>{const[x]=P(0,l);s+=`<line class="m-grat" y1="0" y2="${H}" x1="${x}" x2="${x}"/><text class="m-grat-t" x="${x+3}" y="${H-6}">${l.toFixed(1)}°E</text>`});
+    s+=`<path class="m-river" d="${smooth(jordan,false)}"/><path class="m-river" d="${smooth(upperJ,false)}"/>`;
+    s+=`<path class="m-lake" d="${smooth(galilee,true)}"/><path class="m-lake" d="${smooth(deadSea,true)}"/>`;
+    const t=(lat,lon,txt,cls,anchor,dx,dy)=>{const[x,y]=P(lat,lon);return `<text class="${cls}" x="${x+(dx||0)}" y="${y+(dy||0)}" text-anchor="${anchor||'start'}">${txt}</text>`};
+    s+=t(32.30,34.30,u.sea[0],"m-water-t","middle")+t(32.30,34.30,u.sea[1],"m-water-t","middle",0,14);
+    s+=t(31.42,35.62,u.dead,"m-water-t","start",4);
+    s+=t(32.30,35.60,u.jordan,"m-water-t","start",2);
+    places.forEach(([n,lat,lon,side])=>{const[x,y]=P(lat,lon);s+=`<circle class="m-dot" cx="${x}" cy="${y}" r="2.3"/><text class="m-lbl" x="${side==='l'?x-5:x+5}" y="${y+3.5}" text-anchor="${side==='l'?'end':'start'}">${NAMES[n][li]}</text>`});
+    Object.entries(PLACES).forEach(([id,p])=>{const[x,y]=P(p.lat,p.lon),on=id===place;
+      s+=`<g class="pin${on?' on':''}" data-place="${id}">${on?`<circle class="m-sel-ring pulse" cx="${x}" cy="${y}" r="9"/>`:''}<circle class="m-hit" cx="${x}" cy="${y}" r="14"/><circle class="m-sel-ring" cx="${x}" cy="${y}" r="7"/><circle class="m-sel" cx="${x}" cy="${y}" r="3.4"/><text class="m-sel-lbl" x="${x+12}" y="${y+5}">${NAMES[p.key][li]}</text></g>`});
+    const km=20/111*K, sx=W-km-14, sy=H-26;
+    s+=`<path class="m-scale" d="M${sx},${sy-4}V${sy}H${sx+km}V${sy-4}"/><text class="m-grat-t" x="${sx+km/2}" y="${sy-7}" text-anchor="middle">${u.km}</text>`;
+    document.getElementById('map').innerHTML=s+`</svg>`;
+  }
+
+  const $=id=>document.getElementById(id);
+  const plate=$('plate'), card=$('card'), row=$('stops');
+  let lang='en', place='jer', cur=0;
+  function buildStops(){
+    const A=PLACES[place].A; row.innerHTML=''; row.style.gridTemplateColumns=`repeat(${A.length},minmax(0,1fr))`;
+    A.forEach((a,i)=>{const b=document.createElement('button');b.className='stop';b.type='button';b.innerHTML='<i></i><span></span>';b.addEventListener('click',()=>{cur=i;show()});row.appendChild(b)});
+  }
+  function show(){
+    const A=PLACES[place].A, a=A[cur][lang];
+    $('a-date').textContent=a.date; $('a-title').textContent=a.title; $('a-text').textContent=a.text; $('a-src').textContent=a.src;
+    row.querySelectorAll('.stop').forEach((b,j)=>{b.setAttribute('aria-pressed',j===cur?'true':'false');b.querySelector('span').textContent=A[j][lang].y});
+    const nm=NAMES[PLACES[place].key];
+    plate.querySelectorAll('.nm').forEach(b=>{b.textContent=nm[LI[b.dataset.lang]];b.setAttribute('aria-pressed',b.dataset.lang===lang?'true':'false')});
+    plate.querySelectorAll('.tab').forEach(b=>{b.textContent=NAMES[PLACES[b.dataset.place].key][LI[lang]];b.setAttribute('aria-pressed',b.dataset.place===place?'true':'false')});
+    drawMap(lang);
+    plate.querySelectorAll('.pin').forEach(g=>g.addEventListener('click',()=>setPlace(g.dataset.place)));
+  }
+  function setPlace(p){ if(p===place)return; place=p; cur=PLACES[p].start; buildStops(); show(); }
+  function setLang(l){
+    lang=l; const rtl=l!=='en';
+    plate.setAttribute('lang',l); plate.setAttribute('data-lang',l);
+    [card,row,plate.querySelector('.plate-head'),plate.querySelector('.demo-note')].forEach(el=>el.setAttribute('dir',rtl?'rtl':'ltr'));
+    plate.querySelectorAll('[data-t]').forEach(el=>el.textContent=UI[l][el.dataset.t]);
+    show();
+  }
+  plate.querySelectorAll('.nm').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+  plate.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>setPlace(b.dataset.place)));
+  buildStops(); setLang('en');
+
+})();
+</script>
+
+</body>
+</html>
